@@ -55,4 +55,5 @@ class PokedexViewController: UIViewController {
         stactistViewScreen.imageId = sender.pokemonImage
         self.navigationController?.pushViewController(stactistViewScreen, animated: true)
     }
+    
 }
