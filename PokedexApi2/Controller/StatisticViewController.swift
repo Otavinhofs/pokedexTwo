@@ -41,7 +41,8 @@ class StatisticViewController: UIViewController {
                         self.pokemon = pokeStats
                         print(pokeStats)
                         DispatchQueue.main.async {
-                            self.namePokemon.text = pokeStats.name.capitalized
+                            self.namePokemon.text = pokeStats.name
+                            self.pokeImage.setImage(urlAdress: self.imageId ?? "")
                             self.pokeHealth.text = String(pokeStats.stats![0].baseStat)
                             self.pokeAtack.text = String(pokeStats.stats![1].baseStat)
                             self.pokeDefence.text = String(pokeStats.stats![2].baseStat)

@@ -46,3 +46,30 @@ class PokemonTapGesture: UITapGestureRecognizer {
     var idPokemon: String?
     var pokemonImage: String?
 }
+
+extension UIImageView {
+    func setImage(urlAdress: String) {
+        guard let url = URL(string: urlAdress) else {return}
+        
+        DispatchQueue.global().async {
+            let imageData = try? Data(contentsOf: url)
+            DispatchQueue.main.async { [weak self] in
+                if let imageData = imageData {
+                    if let loadedImage = UIImage(data: imageData) {
+                        self?.image = loadedImage
+                    }
+                }
+                
+            }
+//            DispatchQueue.main.async { [weak self] in
+//                if let imageData = imageData {
+//                    if let loadedImage = UIImage(data: imageData) {
+//                        self?.image = loadedImage
+//                    }
+//                }
+//
+//            }
+        }
+    }
+
+}
